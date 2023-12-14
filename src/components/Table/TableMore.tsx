@@ -1,19 +1,26 @@
+import Link from "next/link";
+import Image from "next/image";
+import type { UserInfo } from "./Table";
+
 import styles from "./Table.module.scss";
 
 import view from "@/assets/images/view.svg";
 import deleteFriend from "@/assets/images/deleteFriend.svg";
 import activateUser from "@/assets/images/activateUser.svg";
-import Image from "next/image";
 
-export default function TableMore() {
+interface TableMoreProps {
+  user: UserInfo;
+}
+
+export default function TableMore({ user }: TableMoreProps) {
   return (
     <div className={styles.tableMore}>
       <ul className={styles.tableMoreList}>
         <li>
-          <button>
+          <Link href={`/dashboard/users/${user.id}`}>
             <Image src={view} alt="View Details" width={16} />
             <span>View Details</span>
-          </button>
+          </Link>
         </li>
 
         <li>

@@ -1,9 +1,12 @@
+import { uuid } from "uuidv4";
 import Image from "next/image";
-import { ReactElement } from "react";
+import { ReactElement, useMemo } from "react";
 
 import Table from "@/components/Table";
 import Layout from "@/components/Layout";
 import DashboardInfoCard from "@/components/DashboardInfoCard";
+
+import { users, UserInfo } from "@/utils/constants";
 
 import styles from "./users.module.scss";
 import npUsers from "@/assets/images/npUsers.svg";
@@ -12,6 +15,10 @@ import npMoney from "@/assets/images/npMoney.svg";
 import npActiveUsers from "@/assets/images/npActiveUsers.svg";
 
 function Users() {
+  const data: UserInfo[] = useMemo(() => {
+    return users;
+  }, []);
+
   return (
     <div className={styles.usersContainer}>
       <h1 className={styles.usersHeader}>Users</h1>
@@ -47,7 +54,7 @@ function Users() {
       </section>
 
       <section>
-        <Table />
+        <Table data={data} />
       </section>
     </div>
   );

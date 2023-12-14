@@ -72,17 +72,19 @@
     li {
       list-style: none;
 
-      button {
+      button,
+      a {
         border: none;
         display: flex;
         color: #545f7d;
-        mix-blend-mode: multiply;
         cursor: pointer;
         font-size: 14px;
         background: none;
         font-weight: 500;
         align-items: center;
         font-family: inherit;
+        text-decoration: none;
+        mix-blend-mode: multiply;
       }
 
       img {

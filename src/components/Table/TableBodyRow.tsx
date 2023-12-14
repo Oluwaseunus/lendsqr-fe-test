@@ -8,22 +8,17 @@ import StatusBadge, { StatusBadgeProps } from "../StatusBadge";
 import styles from "./Table.module.scss";
 import more from "@/assets/images/more.svg";
 import TableMore from "./TableMore";
+import type { UserInfo } from "./Table";
 
 interface TableBodyRowProps {
-  data: {
-    email: string;
-    username: string;
-    dateJoined: string;
-    phoneNumber: string;
-    organization: string;
-    status: StatusBadgeProps["value"];
-  };
+  data: UserInfo;
 }
 
-function TableBodyRow({
-  data: { email, status, username, dateJoined, phoneNumber, organization },
-}: TableBodyRowProps) {
+function TableBodyRow({ data }: TableBodyRowProps) {
   const [showMore, setShowMore] = useState(false);
+
+  const { id, email, status, username, dateJoined, phoneNumber, organization } =
+    data;
 
   return (
     <tr className={styles.tableRow}>
@@ -47,9 +42,9 @@ function TableBodyRow({
         />
 
         {showMore && (
-          <ClickAwayListener onClickAway={() => setShowMore(false)}>
-            <TableMore />
-          </ClickAwayListener>
+          // <ClickAwayListener onClickAway={() => setShowMore(false)}>
+          <TableMore user={data} />
+          // </ClickAwayListener>
         )}
       </td>
     </tr>

@@ -2,8 +2,13 @@ import TableBodyRow from "./TableBodyRow";
 import TableHeadCell from "./TableHeadCell";
 
 import styles from "./Table.module.scss";
+import { UserInfo } from "@/utils/constants";
 
-export default function Table() {
+interface TableProps {
+  data: UserInfo[];
+}
+
+export default function Table({ data }: TableProps) {
   return (
     <div className={styles.tableContainer}>
       <table className={styles.table}>
@@ -26,46 +31,9 @@ export default function Table() {
         </thead>
 
         <tbody className={styles.tableBody}>
-          <TableBodyRow
-            data={{
-              status: "Inactive",
-              username: "Adedeji",
-              organization: "Lendsqr",
-              phoneNumber: "08078903721",
-              email: "adedeji@lendsqr.com",
-              dateJoined: new Date().toString(),
-            }}
-          />
-          <TableBodyRow
-            data={{
-              status: "Pending",
-              username: "Adedeji",
-              organization: "Lendsqr",
-              phoneNumber: "08078903721",
-              email: "adedeji@lendsqr.com",
-              dateJoined: new Date().toString(),
-            }}
-          />
-          <TableBodyRow
-            data={{
-              status: "Blacklisted",
-              username: "Adedeji",
-              organization: "Lendsqr",
-              phoneNumber: "08078903721",
-              email: "adedeji@lendsqr.com",
-              dateJoined: new Date().toString(),
-            }}
-          />
-          <TableBodyRow
-            data={{
-              status: "Active",
-              username: "Adedeji",
-              organization: "Lendsqr",
-              phoneNumber: "08078903721",
-              email: "adedeji@lendsqr.com",
-              dateJoined: new Date().toString(),
-            }}
-          />
+          {data.map((user) => (
+            <TableBodyRow data={user} key={user.id} />
+          ))}
         </tbody>
       </table>
     </div>

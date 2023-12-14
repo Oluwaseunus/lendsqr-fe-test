@@ -38,7 +38,13 @@ export default function Sidebar() {
       <div className={styles.sidebarLinkContainer}>
         <p className={styles.sidebarHeading}>Customers</p>
 
-        <SidebarLink icon={userFriends} text="Users" fullColour isActive />
+        <SidebarLink
+          isActive
+          fullColour
+          text="Users"
+          icon={userFriends}
+          href="/dashboard/users"
+        />
         <SidebarLink icon={users} text="Guarantors" />
         <SidebarLink icon={sack} text="Loans" />
         <SidebarLink icon={handshake} text="Decision Models" />
