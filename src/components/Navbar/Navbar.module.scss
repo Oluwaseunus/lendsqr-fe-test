@@ -1,0 +1,51 @@
+.navbar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  padding: 35px 30px;
+  align-items: center;
+  box-shadow: 3px 0px 20px 0px rgba(0, 0, 0, 0.04);
+}
+
+.logoContainer {
+  margin-right: 168px;
+}
+
+.inputContainer {
+  --horizontal-padding: 20px;
+
+  height: 40px;
+  width: 400px;
+  display: flex;
+  // overflow: hidden;
+  border-radius: 8px;
+  align-items: center;
+  border: 1px solid rgba(#213f7d, 0.2);
+  padding: 12px var(--horizontal-padding);
+
+  input {
+    width: 100%;
+    border: none;
+    background: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-family: inherit;
+      color: #545f7d;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  }
+
+  button {
+    width: 56px;
+    height: 40px;
+    position: relative;
+    right: calc(-1 * var(--horizontal-padding));
+
+    margin-left: auto;
+  }
+}

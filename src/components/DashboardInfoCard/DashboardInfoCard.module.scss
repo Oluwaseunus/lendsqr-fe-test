@@ -1,0 +1,35 @@
+.dashboardInfoCard {
+  width: 240px;
+  height: 160px;
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px 30px;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+}
+
+.dashboardInfoIconContainer {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  margin-bottom: 14px;
+  justify-content: center;
+}
+
+.dashboardInfoTitle {
+  color: #545f7d;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  font-family: "Work Sans";
+  text-transform: uppercase;
+}
+
+.dashboardInfoCount {
+  color: #213f7d;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Work Sans", sans-serif;
+}

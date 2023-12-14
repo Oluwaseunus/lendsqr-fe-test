@@ -1,0 +1,46 @@
+.sidebarLink {
+  height: 40px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  text-decoration: none;
+
+  :first-child {
+    opacity: 0.6;
+  }
+
+  :not(:last-child) {
+    margin-right: 10px;
+  }
+
+  span {
+    color: rgba(#213f7d, 0.6);
+  }
+}
+
+.isActive::before {
+  content: "";
+  position: absolute;
+
+  width: 3px;
+  left: -30px;
+  height: 100%;
+  background-color: #39cdcc;
+}
+
+.isActive::after {
+  content: "";
+  position: absolute;
+
+  width: 30vw;
+  height: 100%;
+  opacity: 0.06;
+  right: -40px;
+  background-color: #39cdcc;
+}
+
+.fullColour {
+  span {
+    color: #213f7d;
+  }
+}

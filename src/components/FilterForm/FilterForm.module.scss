@@ -1,0 +1,82 @@
+.filterFormContainer {
+  position: absolute;
+
+  width: 270px;
+  // height: 600px;
+  top: 45px;
+  background: #fff;
+  z-index: 12;
+  padding: 30px 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+}
+
+.filterFormGroup {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    text-transform: none;
+  }
+
+  input,
+  select {
+    height: 40px;
+    border: none;
+    background: none;
+    appearance: none;
+    background: white;
+    position: relative;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: inherit;
+    border: 1px solid #213f7d33;
+
+    &::placeholder {
+      font-size: 14px;
+      font-family: inherit;
+      color: #545f7db3;
+    }
+  }
+
+  .filterForm &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+
+  .filterForm > &:last-of-type {
+    margin-bottom: 30px;
+  }
+}
+
+.filterFormActions {
+  display: flex;
+
+  button {
+    width: 98px;
+    height: 40px;
+    font-weight: 600;
+    font-family: "Work Sans", sans-serif;
+    text-transform: none;
+    width: fit-content;
+    padding: 12px 30px;
+    border-radius: 8px;
+  }
+
+  & :first-child {
+    color: #545f7d;
+    background: none;
+    margin-right: 10px;
+    border: 1px solid #545f7d;
+  }
+}
+
+.filterFormSelectImageContainer {
+  top: 55%;
+  right: 10px;
+  position: absolute;
+}

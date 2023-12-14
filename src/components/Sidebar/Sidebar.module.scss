@@ -1,0 +1,23 @@
+.aside {
+  width: 100%;
+  padding: 30px;
+  max-width: 300px;
+  overflow-x: hidden;
+  font-family: "Work Sans", sans-serif;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.04);
+}
+
+.sidebarHeading {
+  font-size: 12px;
+  font-weight: 500;
+  color: #545f7d;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family: "Work Sans", sans-serif;
+}
+
+.sidebarLinkContainer {
+  &:not(:last-of-type) {
+    margin-bottom: 40px;
+  }
+}
