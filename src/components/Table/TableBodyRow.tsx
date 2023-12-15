@@ -5,10 +5,11 @@ import ClickAwayListener from "react-click-away-listener";
 
 import StatusBadge, { StatusBadgeProps } from "../StatusBadge";
 
+import type { UserInfo } from "@/utils/constants";
+
 import styles from "./Table.module.scss";
 import more from "@/assets/images/more.svg";
 import TableMore from "./TableMore";
-import type { UserInfo } from "./Table";
 
 interface TableBodyRowProps {
   data: UserInfo;

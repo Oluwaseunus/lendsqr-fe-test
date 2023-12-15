@@ -14,6 +14,7 @@ import { formatMoney } from "@/utils/currency";
 import { UserInfo, users } from "@/utils/constants";
 
 import styles from "./SingleUserPage.module.scss";
+import Link from "next/link";
 
 function SingleUserPage() {
   const router = useRouter();
@@ -32,13 +33,13 @@ function SingleUserPage() {
 
   return (
     <div className={styles.singleUserPage}>
-      <button
-        type="button"
+      <Link
+        href="/dashboard/users"
         className={clsx(styles.button, styles.singleUserPageBack)}
       >
         <Image src={back} alt="Back to Users" width={30} />
         <p>Back to Users</p>
-      </button>
+      </Link>
 
       <div className={styles.singleUserPageHeading}>
         <h1>User Details</h1>
@@ -89,6 +90,136 @@ function SingleUserPage() {
           </span>
         </div>
       </section>
+
+      <div className={styles.userFullDetails}>
+        <section className={styles.detailsSection}>
+          <h3>Personal Information</h3>
+
+          <ul
+            className={clsx(styles.sectionGrid, styles.personalInformationGrid)}
+          >
+            <li>
+              <p>Full Name</p>
+              <span>{user.username}</span>
+            </li>
+            <li>
+              <p>Phone Number</p>
+              <span>{user.phoneNumber}</span>
+            </li>
+            <li>
+              <p>Email Address</p>
+              <span>{user.email}</span>
+            </li>
+            <li>
+              <p>BVN</p>
+              <span>{user.bvn}</span>
+            </li>
+            <li>
+              <p>Gender</p>
+              <span>{user.gender}</span>
+            </li>
+            <li>
+              <p>Marital Status</p>
+              <span>{user.maritalStatus}</span>
+            </li>
+            <li>
+              <p>Children</p>
+              <span>{user.children || "None"}</span>
+            </li>
+            <li>
+              <p>Type of Residence</p>
+              <span>{user.username}</span>
+            </li>
+          </ul>
+        </section>
+
+        <div className={styles.sectionDivider} />
+
+        <section className={styles.detailsSection}>
+          <h3>Education and Employment</h3>
+
+          <ul className={clsx(styles.sectionGrid, styles.educationGrid)}>
+            <li>
+              <p>Level of Education</p>
+              <span>{user.levelOfEducation}</span>
+            </li>
+            <li>
+              <p>Employment Status</p>
+              <span>{user.employmentStatus}</span>
+            </li>
+            <li>
+              <p>Sector of Employment</p>
+              <span>{user.employmentSector}</span>
+            </li>
+            <li>
+              <p>Duration of Employment</p>
+              <span>{user.employmentDuration}</span>
+            </li>
+            <li>
+              <p>Office Email</p>
+              <span>{user.officeEmail}</span>
+            </li>
+            <li>
+              <p>Monthly Income</p>
+              <span>
+                {user.monthlyIncome
+                  .map((item) => formatMoney(item))
+                  .join(" - ")}
+              </span>
+            </li>
+            <li>
+              <p>Loan Repayment</p>
+              <span>{formatMoney(user.loanRepayment)}</span>
+            </li>
+          </ul>
+        </section>
+
+        <div className={styles.sectionDivider} />
+
+        <section className={styles.detailsSection}>
+          <h3>Socials</h3>
+
+          <ul className={clsx(styles.sectionGrid, styles.socialsGrid)}>
+            <li>
+              <p>Twitter</p>
+              <span>@{user.twitter}</span>
+            </li>
+            <li>
+              <p>Facebook</p>
+              <span>@{user.facebook}</span>
+            </li>
+            <li>
+              <p>Instagram</p>
+              <span>@{user.instagram}</span>
+            </li>
+          </ul>
+        </section>
+
+        <div className={styles.sectionDivider} />
+
+        <section className={styles.detailsSection}>
+          <h3>Guarantor</h3>
+
+          <ul className={clsx(styles.sectionGrid, styles.guarantorGrid)}>
+            <li>
+              <p>Full Name</p>
+              <span>{user.guarantor.fullName}</span>
+            </li>
+            <li>
+              <p>Phone Number</p>
+              <span>{user.guarantor.phoneNumber}</span>
+            </li>
+            <li>
+              <p>Email Address</p>
+              <span>{user.guarantor.email}</span>
+            </li>
+            <li>
+              <p>Relationship</p>
+              <span>{user.guarantor.relationship}</span>
+            </li>
+          </ul>
+        </section>
+      </div>
     </div>
   );
 }

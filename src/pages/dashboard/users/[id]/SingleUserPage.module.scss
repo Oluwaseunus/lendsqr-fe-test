@@ -8,6 +8,7 @@
   border: none;
   display: flex;
   font-size: 16px;
+  cursor: pointer;
   background: none;
   align-items: center;
   font-family: inherit;
@@ -15,6 +16,7 @@
 
 .singleUserPageBack {
   color: #545f7d;
+  text-decoration: none;
   margin-bottom: 26px;
 
   & :not(:last-child) {
@@ -99,14 +101,19 @@
   }
 }
 
-.userInfo {
-  display: flex;
+.userInfo,
+.userFullDetails {
   padding: 30px;
   background: #fff;
   border-radius: 4px;
-  align-items: center;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+}
+
+.userInfo {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
 }
 
 .userInfoDivider {
@@ -142,4 +149,55 @@
   span {
     font-size: 12px;
   }
+}
+
+.sectionDivider {
+  width: 100%;
+  height: 1px;
+  margin: 30px 0;
+  background-color: #213f7d1a;
+}
+
+.detailsSection {
+  h3 {
+    color: #213f7d;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  li {
+    list-style: none;
+    color: #545f7d;
+
+    p {
+      font-size: 12px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    span {
+      font-weight: 500;
+    }
+  }
+}
+
+.sectionGrid {
+  display: grid;
+  row-gap: 30px;
+}
+
+.personalInformationGrid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.educationGrid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.socialsGrid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.guarantorGrid {
+  grid-template-columns: repeat(5, 1fr);
 }
