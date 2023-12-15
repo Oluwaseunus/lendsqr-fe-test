@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { UserInfo } from "./Table";
+import type { UserInfo } from "@/utils/constants";
 
 import styles from "./Table.module.scss";
 

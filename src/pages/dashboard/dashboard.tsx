@@ -1,15 +1,17 @@
 import Image from "next/image";
 import { ReactElement } from "react";
 
+import Table from "@/components/Table";
 import Layout from "@/components/Layout";
 import DashboardInfoCard from "@/components/DashboardInfoCard";
+
+import { users } from "@/utils/constants";
 
 import styles from "./dashboard.module.scss";
 import npUsers from "@/assets/images/npUsers.svg";
 import npLoans from "@/assets/images/npLoans.svg";
 import npMoney from "@/assets/images/npMoney.svg";
 import npActiveUsers from "@/assets/images/npActiveUsers.svg";
-import Table from "@/components/Table";
 
 function Dashboard() {
   return (
@@ -47,7 +49,7 @@ function Dashboard() {
       </section>
 
       <section>
-        <Table />
+        <Table data={users} />
       </section>
     </div>
   );
