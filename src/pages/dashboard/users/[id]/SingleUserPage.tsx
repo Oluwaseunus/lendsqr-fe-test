@@ -55,40 +55,68 @@ function SingleUserPage() {
         </div>
       </div>
 
-      <section className={styles.userInfo}>
-        <div className={styles.userProfile}>
-          <div className={styles.userDetails}>
-            <div className={styles.userDetailsImageContainer}>
-              <Image src={userSVG} alt="" width={40} />
-            </div>
+      <section className={styles.userInfoContainer}>
+        <div className={styles.userInfo}>
+          <div className={styles.userProfile}>
+            <div className={styles.userDetails}>
+              <div className={styles.userDetailsImageContainer}>
+                <Image src={userSVG} alt="" width={40} />
+              </div>
 
-            <div className={styles.userNameAndTag}>
-              <h2>{user.username}</h2>
-              <p>{user.tag}</p>
+              <div className={styles.userNameAndTag}>
+                <h2>{user.username}</h2>
+                <p>{user.tag}</p>
+              </div>
             </div>
+          </div>
+
+          <div className={styles.userInfoDivider}></div>
+
+          <div className={styles.userTier}>
+            <p>User&apos;s Tier</p>
+            <div>
+              <Image src={starFilled} alt="Tier 1" width={16} />
+              <Image src={starOutline} alt="Tier 1" width={16} />
+              <Image src={starOutline} alt="Tier 1" width={16} />
+            </div>
+          </div>
+
+          <div className={styles.userInfoDivider}></div>
+
+          <div className={styles.userAccounts}>
+            <p>{formatMoney(+user.balance)}</p>
+
+            <span>
+              {user.accountNumber}/{user.bank}
+            </span>
           </div>
         </div>
 
-        <div className={styles.userInfoDivider}></div>
+        <ul className={styles.tabs}>
+          <li className={styles.activeTab}>
+            <button>General Details</button>
+          </li>
 
-        <div className={styles.userTier}>
-          <p>User&apos;s Tier</p>
-          <div>
-            <Image src={starFilled} alt="Tier 1" width={16} />
-            <Image src={starOutline} alt="Tier 1" width={16} />
-            <Image src={starOutline} alt="Tier 1" width={16} />
-          </div>
-        </div>
+          <li>
+            <button>Documents</button>
+          </li>
 
-        <div className={styles.userInfoDivider}></div>
+          <li>
+            <button>Bank Details</button>
+          </li>
 
-        <div className={styles.userAccounts}>
-          <p>{formatMoney(+user.balance)}</p>
+          <li>
+            <button>Loans</button>
+          </li>
 
-          <span>
-            {user.accountNumber}/{user.bank}
-          </span>
-        </div>
+          <li>
+            <button>Savings</button>
+          </li>
+
+          <li>
+            <button>App and System</button>
+          </li>
+        </ul>
       </section>
 
       <div className={styles.userFullDetails}>
