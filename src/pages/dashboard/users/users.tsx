@@ -1,4 +1,3 @@
-import { uuid } from "uuidv4";
 import Image from "next/image";
 import { ReactElement, useMemo } from "react";
 
