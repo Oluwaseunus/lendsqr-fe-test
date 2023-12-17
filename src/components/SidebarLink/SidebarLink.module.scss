@@ -40,6 +40,10 @@
 }
 
 .fullColour {
+  :first-child {
+    opacity: 1;
+  }
+
   span {
     color: #213f7d;
   }

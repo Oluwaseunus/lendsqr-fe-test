@@ -9,6 +9,7 @@ import galaxy from "@/assets/images/galaxy.svg";
 import scroll from "@/assets/images/scroll.svg";
 import userCog from "@/assets/images/userCog.svg";
 import sliders from "@/assets/images/sliders.svg";
+import signOut from "@/assets/images/signOut.svg";
 import barChart from "@/assets/images/barChart.svg";
 import handshake from "@/assets/images/handshake.svg";
 import userCheck from "@/assets/images/userCheck.svg";
@@ -76,6 +77,12 @@ export default function Sidebar() {
         <SidebarLink icon={clipboardList} text="Audit Logs" />
         <SidebarLink icon={tire} text="Systems Messages" />
       </div>
+
+      <div className={styles.sidebarDivider} />
+
+      <SidebarLink fullColour icon={signOut} text="Logout" />
+
+      <p className={styles.version}>v1.2.0</p>
     </aside>
   );
 }
