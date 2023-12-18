@@ -43,9 +43,7 @@ function TableBodyRow({ data }: TableBodyRowProps) {
         />
 
         {showMore && (
-          // <ClickAwayListener onClickAway={() => setShowMore(false)}>
-          <TableMore user={data} />
-          // </ClickAwayListener>
+          <TableMore user={data} onClickAway={() => setShowMore(false)} />
         )}
       </td>
     </tr>

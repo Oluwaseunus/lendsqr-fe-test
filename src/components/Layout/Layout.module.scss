@@ -1,8 +1,14 @@
+@use "@/styles/abstracts/mixins";
+
 .layoutBody {
   display: flex;
 
   main {
     margin-left: 300px;
     width: 100%;
+
+    @include mixins.breakpointDesktop {
+      margin-left: 0;
+    }
   }
 }

@@ -1,9 +1,13 @@
+@use "@/styles/abstracts/mixins";
+
 .aside {
+  z-index: 1;
   width: 100%;
   padding: 30px;
   position: fixed;
   max-width: 300px;
   overflow-x: hidden;
+  background-color: white;
   height: calc(100vh - 100px);
 
   font-family: "Work Sans", sans-serif;
@@ -11,6 +15,10 @@
 
   &::-webkit-scrollbar {
     width: 0;
+  }
+
+  @include mixins.breakpointDesktop {
+    display: none;
   }
 }
 

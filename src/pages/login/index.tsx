@@ -26,6 +26,10 @@ export default function Login() {
 
   return (
     <div className={styles.loginContainer}>
+      <div className={styles.logo}>
+        <Image src={logo} alt="Lendsqr" />
+      </div>
+
       <div className={styles.loginHero}>
         <div className={styles.logoContainer}>
           <Image src={logo} alt="Lendsqr" />

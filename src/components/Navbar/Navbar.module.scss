@@ -1,3 +1,5 @@
+@use "@/styles/abstracts/mixins";
+
 .navContainer {
   top: 0;
   z-index: 1;
@@ -12,10 +14,14 @@
   padding: 35px 30px;
   align-items: center;
   box-shadow: 3px 0px 20px 0px rgba(0, 0, 0, 0.04);
+
+  @include mixins.breakpointMobile {
+    height: 0;
+  }
 }
 
 .logoContainer {
-  margin-right: 168px;
+  margin-right: auto;
 }
 
 .inputContainer {
@@ -55,6 +61,10 @@
 
     margin-left: auto;
   }
+
+  @include mixins.breakpointTabletLg {
+    display: none;
+  }
 }
 
 .actions {
@@ -62,6 +72,10 @@
   margin-left: auto;
   align-items: center;
   font-family: "Work Sans", sans-serif;
+
+  @include mixins.breakpointMobile {
+    display: none;
+  }
 
   a {
     color: #213f7d;

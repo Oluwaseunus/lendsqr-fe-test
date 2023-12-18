@@ -14,24 +14,27 @@ import starFilled from "@/assets/images/starFilled.svg";
 import starOutline from "@/assets/images/starOutline.svg";
 
 import { formatMoney } from "@/utils/currency";
-import { UserInfo, users } from "@/utils/constants";
+import { UserInfo, fetcher, users } from "@/utils/constants";
 
 import styles from "./SingleUserPage.module.scss";
+import useSWR from "swr";
 
 dayjs.extend(relativeTime);
 
 function SingleUserPage() {
   const router = useRouter();
 
-  const [user, setUser] = useState<UserInfo | null>(null);
+  const { data, error, isLoading } = useSWR(
+    `/api/v1/users/${router.query.id}`,
+    fetcher
+  );
 
-  useEffect(() => {
-    setTimeout(() => {
-      setUser(
-        users.find((currentUser) => currentUser.id === router.query.id) || null
-      );
-    }, 1000);
-  }, [router.query.id]);
+  if (error) return <p>An error occurred.</p>;
+  if (isLoading) return <p>Loading...</p>;
+
+  const { data: user } = data;
+
+  console.log({ user, data });
 
   if (!user) return null;
 
@@ -148,7 +151,7 @@ function SingleUserPage() {
             </li>
             <li>
               <p>Gender</p>
-              <span>{user.gender}</span>
+              <span className={styles.gender}>{user.gender}</span>
             </li>
             <li>
               <p>Marital Status</p>
@@ -194,9 +197,8 @@ function SingleUserPage() {
             <li>
               <p>Monthly Income</p>
               <span>
-                {user.monthlyIncome
-                  .map((item) => formatMoney(item))
-                  .join(" - ")}
+                {formatMoney(+user.monthlyIncome)} -{" "}
+                {formatMoney(+user.monthlyIncome + 10000000)}
               </span>
             </li>
             <li>

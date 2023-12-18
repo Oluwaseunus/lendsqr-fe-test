@@ -65,7 +65,10 @@ function Users() {
             <div className={styles.selectContainer}>
               <select
                 defaultValue={size}
-                onChange={(event) => setSize(+event.target.value)}
+                onChange={(event) => {
+                  setPage(1);
+                  setSize(+event.target.value);
+                }}
               >
                 <option value={10}>10</option>
                 <option value={20}>20</option>
