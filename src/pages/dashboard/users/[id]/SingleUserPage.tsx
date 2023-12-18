@@ -1,6 +1,9 @@
 import clsx from "clsx";
+import dayjs from "dayjs";
+import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { ReactElement, useEffect, useState } from "react";
 
 import Layout from "@/components/Layout";
@@ -14,7 +17,8 @@ import { formatMoney } from "@/utils/currency";
 import { UserInfo, users } from "@/utils/constants";
 
 import styles from "./SingleUserPage.module.scss";
-import Link from "next/link";
+
+dayjs.extend(relativeTime);
 
 function SingleUserPage() {
   const router = useRouter();
@@ -181,7 +185,7 @@ function SingleUserPage() {
             </li>
             <li>
               <p>Duration of Employment</p>
-              <span>{user.employmentDuration}</span>
+              <span>{dayjs(user.dateJoined).fromNow(true)}</span>
             </li>
             <li>
               <p>Office Email</p>

@@ -17,8 +17,8 @@ function FilterForm({ handleClickAway }: FilterFormProps) {
         <form className={styles.filterForm}>
           <div className={styles.filterFormGroup}>
             <label htmlFor="filterFormOrganization">Organization</label>
-            <select id="filterFormOrganization">
-              <option value="" selected disabled>
+            <select id="filterFormOrganization" defaultValue="">
+              <option value="" disabled>
                 Select
               </option>
             </select>
@@ -54,8 +54,8 @@ function FilterForm({ handleClickAway }: FilterFormProps) {
 
           <div className={styles.filterFormGroup}>
             <label htmlFor="filterFormStatus">Status</label>
-            <select id="filterFormStatus">
-              <option value="" selected disabled>
+            <select id="filterFormStatus" defaultValue="">
+              <option value="" disabled>
                 Select
               </option>
             </select>

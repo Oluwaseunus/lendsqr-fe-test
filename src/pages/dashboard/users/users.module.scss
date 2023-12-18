@@ -16,3 +16,76 @@
   align-items: center;
   margin-bottom: 40px;
 }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Work Sans", sans-serif;
+}
+
+.paginationLeft {
+  display: flex;
+  color: #545f7d;
+  font-size: 14px;
+  align-items: center;
+  position: relative;
+
+  & > :not(:last-child) {
+    margin-right: 10px;
+  }
+
+  select {
+    border: none;
+    background: none;
+    appearance: none;
+    font-family: inherit;
+
+    width: 80px;
+    height: 30px;
+    color: #213f7d;
+    font-size: 14px;
+    padding: 7px 12px;
+    position: relative;
+    border-radius: 4px;
+    background: #213f7d1a;
+  }
+}
+
+.selectContainer {
+  position: relative;
+}
+
+.chevronContainer {
+  position: absolute;
+  top: 60%;
+  right: 10%;
+  transform: translateY(-50%);
+}
+
+.paginationRight {
+  display: flex;
+  align-items: center;
+
+  & :not(:last-child) {
+    margin-right: 20px;
+  }
+
+  button {
+    border: none;
+    padding: 5px;
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(33, 63, 125, 0.1);
+
+    &:first-of-type {
+      transform: rotate(90deg);
+    }
+
+    &:last-of-type {
+      transform: rotate(-90deg);
+    }
+  }
+}

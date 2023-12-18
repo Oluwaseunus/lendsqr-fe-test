@@ -28,61 +28,63 @@ import styles from "./Sidebar.module.scss";
 export default function Sidebar() {
   return (
     <aside className={styles.aside}>
-      <div className={styles.sidebarLinkContainer}>
-        <SidebarLink icon={briefcase} text="Switch Organization" />
+      <div>
+        <div className={styles.sidebarLinkContainer}>
+          <SidebarLink icon={briefcase} text="Switch Organization" />
+        </div>
+
+        <div className={styles.sidebarLinkContainer}>
+          <SidebarLink icon={home} text="Dashboard" />
+        </div>
+
+        <div className={styles.sidebarLinkContainer}>
+          <p className={styles.sidebarHeading}>Customers</p>
+
+          <SidebarLink
+            isActive
+            fullColour
+            text="Users"
+            icon={userFriends}
+            href="/dashboard/users"
+          />
+          <SidebarLink icon={users} text="Guarantors" />
+          <SidebarLink icon={sack} text="Loans" />
+          <SidebarLink icon={handshake} text="Decision Models" />
+          <SidebarLink icon={piggyBank} text="Savings" />
+          <SidebarLink icon={handHolding} text="Loan Requests" />
+          <SidebarLink icon={userCheck} text="Whitelist" />
+          <SidebarLink icon={userTimes} text="Karma" />
+        </div>
+
+        <div className={styles.sidebarLinkContainer}>
+          <p className={styles.sidebarHeading}>Businesses</p>
+
+          <SidebarLink icon={briefcase} text="Organization" />
+          <SidebarLink icon={handHolding} text="Loan Products" />
+          <SidebarLink icon={bank} text="Savings Products" />
+          <SidebarLink icon={coinsSolid} text="Fees and Charges" />
+          <SidebarLink icon={transactions} text="Transactions" />
+          <SidebarLink icon={galaxy} text="Services" />
+          <SidebarLink icon={userCog} text="Service Account" />
+          <SidebarLink icon={scroll} text="Settlements" />
+          <SidebarLink icon={barChart} text="Reports" />
+        </div>
+
+        <div className={styles.sidebarLinkContainer}>
+          <p className={styles.sidebarHeading}>Settings</p>
+
+          <SidebarLink icon={sliders} text="Preferences" />
+          <SidebarLink icon={badgePercent} text="Fees and Pricing" />
+          <SidebarLink icon={clipboardList} text="Audit Logs" />
+          <SidebarLink icon={tire} text="Systems Messages" />
+        </div>
+
+        <div className={styles.sidebarDivider} />
+
+        <SidebarLink fullColour icon={signOut} text="Logout" />
+
+        <p className={styles.version}>v1.2.0</p>
       </div>
-
-      <div className={styles.sidebarLinkContainer}>
-        <SidebarLink icon={home} text="Dashboard" />
-      </div>
-
-      <div className={styles.sidebarLinkContainer}>
-        <p className={styles.sidebarHeading}>Customers</p>
-
-        <SidebarLink
-          isActive
-          fullColour
-          text="Users"
-          icon={userFriends}
-          href="/dashboard/users"
-        />
-        <SidebarLink icon={users} text="Guarantors" />
-        <SidebarLink icon={sack} text="Loans" />
-        <SidebarLink icon={handshake} text="Decision Models" />
-        <SidebarLink icon={piggyBank} text="Savings" />
-        <SidebarLink icon={handHolding} text="Loan Requests" />
-        <SidebarLink icon={userCheck} text="Whitelist" />
-        <SidebarLink icon={userTimes} text="Karma" />
-      </div>
-
-      <div className={styles.sidebarLinkContainer}>
-        <p className={styles.sidebarHeading}>Businesses</p>
-
-        <SidebarLink icon={briefcase} text="Organization" />
-        <SidebarLink icon={handHolding} text="Loan Products" />
-        <SidebarLink icon={bank} text="Savings Products" />
-        <SidebarLink icon={coinsSolid} text="Fees and Charges" />
-        <SidebarLink icon={transactions} text="Transactions" />
-        <SidebarLink icon={galaxy} text="Services" />
-        <SidebarLink icon={userCog} text="Service Account" />
-        <SidebarLink icon={scroll} text="Settlements" />
-        <SidebarLink icon={barChart} text="Reports" />
-      </div>
-
-      <div className={styles.sidebarLinkContainer}>
-        <p className={styles.sidebarHeading}>Settings</p>
-
-        <SidebarLink icon={sliders} text="Preferences" />
-        <SidebarLink icon={badgePercent} text="Fees and Pricing" />
-        <SidebarLink icon={clipboardList} text="Audit Logs" />
-        <SidebarLink icon={tire} text="Systems Messages" />
-      </div>
-
-      <div className={styles.sidebarDivider} />
-
-      <SidebarLink fullColour icon={signOut} text="Logout" />
-
-      <p className={styles.version}>v1.2.0</p>
     </aside>
   );
 }

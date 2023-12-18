@@ -13,40 +13,36 @@ import { workSans } from "@/app/fonts";
 
 export default function NavBar() {
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.logoContainer}>
-        <Image src={logo} alt="Lendsqr" width={145} />
-      </div>
+    <nav className={styles.navContainer}>
+      <div className={styles.navbar}>
+        <div className={styles.logoContainer}>
+          <Image src={logo} alt="Lendsqr" width={145} />
+        </div>
 
-      <div className={styles.inputContainer}>
-        <input
-          type="text"
-          name="search"
-          className={workSans.className}
-          placeholder="Search for anything"
-        />
-        <Button variant="primary">
-          <Image src={search} width={14} alt="Search" />
-        </Button>
-      </div>
-
-      <div className={styles.actions}>
-        <Link href="#">Docs</Link>
-
-        <Image src={notification} alt="Notifications" width={26} />
-
-        <div className={styles.profile}>
-          <Image
-            width={48}
-            height={48}
-            src={profile}
-            alt="Adedeji"
-            objectFit="cover"
+        <div className={styles.inputContainer}>
+          <input
+            type="text"
+            name="search"
+            className={workSans.className}
+            placeholder="Search for anything"
           />
+          <Button variant="primary">
+            <Image src={search} width={14} alt="Search" />
+          </Button>
+        </div>
 
-          <p>Adedeji</p>
+        <div className={styles.actions}>
+          <Link href="#">Docs</Link>
 
-          <Image src={dropdown} alt="More" width={20} />
+          <Image src={notification} alt="Notifications" width={26} />
+
+          <div className={styles.profile}>
+            <Image width={48} height={48} src={profile} alt="Adedeji" />
+
+            <p>Adedeji</p>
+
+            <Image src={dropdown} alt="More" width={20} />
+          </div>
         </div>
       </div>
     </nav>

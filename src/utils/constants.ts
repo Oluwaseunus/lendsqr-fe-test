@@ -1,3 +1,4 @@
+import { axiosInstance } from "./axios";
 import { StatusBadgeProps } from "@/components/StatusBadge";
 
 export interface UserInfo {
@@ -9,7 +10,7 @@ export interface UserInfo {
   balance: number;
   username: string;
   children: number;
-  dateJoined: string;
+  dateJoined: "2023-07-24T08:24:45.503Z";
   phoneNumber: string;
   officeEmail: string;
   organization: string;
@@ -20,7 +21,6 @@ export interface UserInfo {
   levelOfEducation: string;
   employmentSector: string;
   gender: "Male" | "Female";
-  employmentDuration: string;
   status: StatusBadgeProps["value"];
   employmentStatus: "Employed" | "Unemployed";
   twitter: string;
@@ -50,12 +50,11 @@ export const users: UserInfo[] = [
     phoneNumber: "08078903721",
     accountNumber: "9912345678",
     email: "adedeji@lendsqr.com",
-    dateJoined: new Date().toString(),
+    dateJoined: "2023-07-24T08:24:45.503Z",
     residenceType: "Parent's Apartment",
     levelOfEducation: "B.Sc",
     employmentStatus: "Employed",
     employmentSector: "Fintech",
-    employmentDuration: "2 years",
     officeEmail: "grace@lendsqr.com",
     monthlyIncome: [20000000, 40000000],
     loanRepayment: 4000000,
@@ -84,12 +83,11 @@ export const users: UserInfo[] = [
     phoneNumber: "08078903721",
     accountNumber: "9912345678",
     email: "adedeji@lendsqr.com",
-    dateJoined: new Date().toString(),
+    dateJoined: "2023-07-24T08:24:45.503Z",
     residenceType: "Parent's Apartment",
     levelOfEducation: "B.Sc",
     employmentStatus: "Employed",
     employmentSector: "Fintech",
-    employmentDuration: "2 years",
     officeEmail: "grace@lendsqr.com",
     monthlyIncome: [20000000, 40000000],
     loanRepayment: 4000000,
@@ -118,12 +116,11 @@ export const users: UserInfo[] = [
     phoneNumber: "08078903721",
     accountNumber: "9912345678",
     email: "adedeji@lendsqr.com",
-    dateJoined: new Date().toString(),
+    dateJoined: "2023-07-24T08:24:45.503Z",
     residenceType: "Parent's Apartment",
     levelOfEducation: "B.Sc",
     employmentStatus: "Employed",
     employmentSector: "Fintech",
-    employmentDuration: "2 years",
     officeEmail: "grace@lendsqr.com",
     monthlyIncome: [20000000, 40000000],
     loanRepayment: 4000000,
@@ -152,12 +149,11 @@ export const users: UserInfo[] = [
     phoneNumber: "08078903721",
     accountNumber: "9912345678",
     email: "adedeji@lendsqr.com",
-    dateJoined: new Date().toString(),
+    dateJoined: "2023-07-24T08:24:45.503Z",
     residenceType: "Parent's Apartment",
     levelOfEducation: "B.Sc",
     employmentStatus: "Employed",
     employmentSector: "Fintech",
-    employmentDuration: "2 years",
     officeEmail: "grace@lendsqr.com",
     monthlyIncome: [20000000, 40000000],
     loanRepayment: 4000000,
@@ -173,3 +169,6 @@ export const users: UserInfo[] = [
     id: "3e26d524-c382-43a9-93d7-4df8ad624fd3",
   },
 ];
+
+export const fetcher = (url: string) =>
+  axiosInstance.get(url).then((res) => res.data);

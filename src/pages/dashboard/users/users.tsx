@@ -1,22 +1,23 @@
 import Image from "next/image";
-import { ReactElement, useMemo } from "react";
+import { ReactElement, useState } from "react";
 
 import Table from "@/components/Table";
 import Layout from "@/components/Layout";
 import DashboardInfoCard from "@/components/DashboardInfoCard";
 
-import { users, UserInfo } from "@/utils/constants";
-
 import styles from "./users.module.scss";
+import next from "@/assets/images/next.svg";
 import npUsers from "@/assets/images/npUsers.svg";
 import npLoans from "@/assets/images/npLoans.svg";
 import npMoney from "@/assets/images/npMoney.svg";
 import npActiveUsers from "@/assets/images/npActiveUsers.svg";
 
 function Users() {
-  const data: UserInfo[] = useMemo(() => {
-    return users;
-  }, []);
+  const [page, setPage] = useState(1);
+  const [size, setSize] = useState(10);
+  const [count, setCount] = useState(0);
+
+  const lastPage = Math.ceil(count / size);
 
   return (
     <div className={styles.usersContainer}>
@@ -53,7 +54,55 @@ function Users() {
       </section>
 
       <section>
-        <Table data={data} />
+        <Table page={page} size={size} setCount={setCount} />
+
+        <Table isHidden size={size} page={page + 1} setCount={setCount} />
+
+        <div className={styles.pagination}>
+          <div className={styles.paginationLeft}>
+            <p>Showing</p>
+
+            <div className={styles.selectContainer}>
+              <select
+                defaultValue={size}
+                onChange={(event) => setSize(+event.target.value)}
+              >
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={50}>50</option>
+                <option value={100}>100</option>
+              </select>
+
+              <div className={styles.chevronContainer}>
+                <Image src={next} alt="More Options" width={14} />
+              </div>
+            </div>
+
+            <p>out of {size}</p>
+          </div>
+
+          <div className={styles.paginationRight}>
+            <button
+              disabled={page === 1}
+              className={styles.prevButton}
+              onClick={() => setPage(page - 1)}
+            >
+              <Image width={14} src={next} alt="Previous" />
+            </button>
+
+            <button onClick={() => setPage(1)}>1</button>
+
+            <button onClick={() => setPage(lastPage)}>{lastPage}</button>
+
+            <button
+              disabled={page === lastPage}
+              className={styles.nextButton}
+              onClick={() => setPage(page + 1)}
+            >
+              <Image width={14} src={next} alt="Next" />
+            </button>
+          </div>
+        </div>
       </section>
     </div>
   );
