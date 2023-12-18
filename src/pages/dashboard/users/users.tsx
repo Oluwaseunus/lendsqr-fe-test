@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ReactElement, useState } from "react";
+import ReactPaginate from "react-paginate";
+import { ReactElement, useCallback, useState } from "react";
 
 import Table from "@/components/Table";
 import Layout from "@/components/Layout";
@@ -18,6 +19,16 @@ function Users() {
   const [count, setCount] = useState(0);
 
   const lastPage = Math.ceil(count / size);
+
+  const handleClick = useCallback(
+    ({ nextSelectedPage }: { nextSelectedPage?: number }) => {
+      if (nextSelectedPage === undefined) return;
+
+      setPage(nextSelectedPage + 1);
+      return false;
+    },
+    []
+  );
 
   return (
     <div className={styles.usersContainer}>
@@ -85,25 +96,42 @@ function Users() {
           </div>
 
           <div className={styles.paginationRight}>
-            <button
-              disabled={page === 1}
-              className={styles.prevButton}
-              onClick={() => setPage(page - 1)}
-            >
-              <Image width={14} src={next} alt="Previous" />
-            </button>
-
-            <button onClick={() => setPage(1)}>1</button>
-
-            <button onClick={() => setPage(lastPage)}>{lastPage}</button>
-
-            <button
-              disabled={page === lastPage}
-              className={styles.nextButton}
-              onClick={() => setPage(page + 1)}
-            >
-              <Image width={14} src={next} alt="Next" />
-            </button>
+            <ReactPaginate
+              forcePage={page - 1}
+              pageCount={lastPage}
+              activeClassName={styles.selectedListItem}
+              className={styles.reactPaginate}
+              // onPageChange={handlePageChange}
+              onClick={handleClick}
+              previousLabel={
+                <button
+                  disabled={page === 1}
+                  className={styles.prevButton}
+                  onClick={() => setPage(page - 1)}
+                >
+                  <Image
+                    width={14}
+                    src={next}
+                    alt="Previous"
+                    style={{ transform: "rotate(90deg)" }}
+                  />
+                </button>
+              }
+              nextLabel={
+                <button
+                  disabled={page === lastPage}
+                  className={styles.nextButton}
+                  onClick={() => setPage(page + 1)}
+                >
+                  <Image
+                    width={14}
+                    src={next}
+                    alt="Next"
+                    style={{ transform: "rotate(-90deg)" }}
+                  />
+                </button>
+              }
+            />
           </div>
         </div>
       </section>

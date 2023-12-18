@@ -19,8 +19,7 @@ export default function Login() {
     e.preventDefault();
 
     setTimeout(() => {
-      // TODO: make an actual API request to login.
-      console.log({ email, password });
+      localStorage.setItem("isAuthenticated", JSON.stringify(true));
     }, 1000);
   };
 

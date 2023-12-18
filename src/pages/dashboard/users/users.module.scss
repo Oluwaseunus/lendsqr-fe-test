@@ -92,13 +92,20 @@
     align-items: center;
     justify-content: center;
     background: rgba(33, 63, 125, 0.1);
+  }
+}
 
-    &:first-of-type {
-      transform: rotate(90deg);
-    }
+.reactPaginate {
+  display: flex;
+  list-style: none;
 
-    &:last-of-type {
-      transform: rotate(-90deg);
+  li {
+    color: #545f7d99;
+    font-size: 16px;
+    cursor: pointer;
+
+    &.selectedListItem {
+      color: #545f7d;
     }
   }
 }

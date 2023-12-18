@@ -1,11 +1,13 @@
+import useSWR from "swr";
+import { Dispatch, SetStateAction, useEffect } from "react";
+
+import PageError from "../PageError";
 import TableBodyRow from "./TableBodyRow";
 import TableHeadCell from "./TableHeadCell";
 
-import styles from "./Table.module.scss";
 import { UserInfo, fetcher } from "@/utils/constants";
-import useSWR from "swr";
-import { Dispatch, SetStateAction } from "react";
-import PageError from "../PageError";
+
+import styles from "./Table.module.scss";
 
 interface TableProps {
   page: number;
@@ -24,7 +26,9 @@ export default function Table({ page, size, isHidden, setCount }: TableProps) {
     fetcher
   );
 
-  setCount(interiorCount);
+  useEffect(() => {
+    setCount(interiorCount);
+  }, [setCount, interiorCount]);
 
   if (isHidden) return null;
 
