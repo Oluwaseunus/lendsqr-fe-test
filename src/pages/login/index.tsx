@@ -8,8 +8,10 @@ import logo from "@/assets/images/logo.svg";
 import loginHero from "@/assets/images/loginHero.png";
 
 import styles from "./page.module.scss";
+import { useRouter } from "next/router";
 
 export default function Login() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,9 +20,8 @@ export default function Login() {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
-    setTimeout(() => {
-      localStorage.setItem("isAuthenticated", JSON.stringify(true));
-    }, 1000);
+    localStorage.setItem("isAuthenticated", JSON.stringify(true));
+    router.push("/dashboard");
   };
 
   return (
@@ -34,12 +35,7 @@ export default function Login() {
           <Image src={logo} alt="Lendsqr" />
         </div>
 
-        <Image
-          width={600}
-          src={loginHero}
-          placeholder="blur"
-          alt="Welcome to the login page"
-        />
+        <Image width={600} src={loginHero} alt="Welcome to the login page" />
       </div>
 
       <div className={styles.loginMain}>

@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-import { Work_Sans } from "next/font/google";
 
 export const AvenirNext = localFont({
   src: [
@@ -19,10 +18,4 @@ export const AvenirNext = localFont({
       style: "normal",
     },
   ],
-});
-
-export const workSans = Work_Sans({
-  display: "swap",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
 });

@@ -9,7 +9,6 @@ import dropdown from "@/assets/images/dropdown.svg";
 import notification from "@/assets/images/notification.svg";
 
 import styles from "./Navbar.module.scss";
-import { workSans } from "@/app/fonts";
 
 export default function NavBar() {
   return (
@@ -20,12 +19,7 @@ export default function NavBar() {
         </div>
 
         <div className={styles.inputContainer}>
-          <input
-            type="text"
-            name="search"
-            className={workSans.className}
-            placeholder="Search for anything"
-          />
+          <input type="text" name="search" placeholder="Search for anything" />
           <Button variant="primary">
             <Image src={search} width={14} alt="Search" />
           </Button>

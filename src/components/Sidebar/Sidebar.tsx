@@ -81,7 +81,7 @@ export default function Sidebar() {
 
         <div className={styles.sidebarDivider} />
 
-        <SidebarLink fullColour icon={signOut} text="Logout" />
+        <SidebarLink fullColour icon={signOut} text="Logout" href="/logout" />
 
         <p className={styles.version}>v1.2.0</p>
       </div>

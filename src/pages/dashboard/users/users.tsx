@@ -1,9 +1,11 @@
+import React from "react";
 import Image from "next/image";
 import ReactPaginate from "react-paginate";
 import { ReactElement, useCallback, useState } from "react";
 
 import Table from "@/components/Table";
 import Layout from "@/components/Layout";
+import withAuth from "@/components/withAuth";
 import DashboardInfoCard from "@/components/DashboardInfoCard";
 
 import styles from "./users.module.scss";
@@ -140,7 +142,7 @@ function Users() {
 }
 
 Users.getLayout = (page: ReactElement) => {
-  return <Layout>{page}</Layout>;
+  return withAuth(<Layout>{page}</Layout>);
 };
 
 export default Users;

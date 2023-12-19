@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import useSWR from "swr";
 import dayjs from "dayjs";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { ReactElement, useEffect, useState } from "react";
 
 import Layout from "@/components/Layout";
+import withAuth from "@/components/withAuth";
 
 import back from "@/assets/images/back.svg";
 import userSVG from "@/assets/images/user.svg";
@@ -17,7 +19,6 @@ import { formatMoney } from "@/utils/currency";
 import { UserInfo, fetcher, users } from "@/utils/constants";
 
 import styles from "./SingleUserPage.module.scss";
-import useSWR from "swr";
 
 dayjs.extend(relativeTime);
 
@@ -259,7 +260,7 @@ function SingleUserPage() {
 }
 
 SingleUserPage.getLayout = (page: ReactElement) => {
-  return <Layout>{page}</Layout>;
+  return withAuth(<Layout>{page}</Layout>);
 };
 
 export default SingleUserPage;
