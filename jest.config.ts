@@ -6,7 +6,14 @@ const config: Config = {
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["./jest.setup.ts"],
   transform: {
-    "^.+\\.(t|j)sx?$": "ts-jest",
+    "^.+\\.(t|j)sx?$": [
+      "ts-jest",
+      {
+        tsConfig: {
+          jsx: "react-jsx",
+        },
+      },
+    ],
     ".+\\.(css|less|sass|scss|png|jpg|gif|ttf|woff|woff2|svg)$":
       "jest-transform-stub",
   },

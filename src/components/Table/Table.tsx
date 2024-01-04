@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import PageError from "../PageError";
 import TableBodyRow from "./TableBodyRow";
 import TableHeadCell from "./TableHeadCell";
+import { useFilter } from "../FilterForm/FilterProvider";
 
 import { UserInfo, fetcher } from "@/utils/constants";
 
@@ -13,20 +14,36 @@ interface TableProps {
   page: number;
   size: number;
   isHidden?: boolean;
+  setPage: Dispatch<SetStateAction<number>>;
   setCount: Dispatch<SetStateAction<number>>;
 }
 
-export default function Table({ page, size, isHidden, setCount }: TableProps) {
+export default function Table({
+  page,
+  size,
+  setPage,
+  isHidden,
+  setCount,
+}: TableProps) {
+  const { formState } = useFilter();
+
+  useEffect(() => {
+    setPage(1);
+  }, [setPage, formState]);
+
   const {
     data: { data = [], count: interiorCount = 0 } = {},
     error,
     isLoading,
   } = useSWR<{ data: UserInfo[]; count: number }>(
-    `/api/v1/users?page=${page}&size=${size}`,
+    `/api/v1/users?page=${page}&size=${size}&${new URLSearchParams(
+      formState
+    ).toString()}`,
     fetcher
   );
 
   useEffect(() => {
+    if (!interiorCount) return;
     setCount(interiorCount);
   }, [setCount, interiorCount]);
 
@@ -63,9 +80,15 @@ export default function Table({ page, size, isHidden, setCount }: TableProps) {
         </thead>
 
         <tbody className={styles.tableBody}>
-          {data.map((user) => (
-            <TableBodyRow data={user} key={user.id} />
-          ))}
+          {data.length ? (
+            data.map((user) => <TableBodyRow data={user} key={user.id} />)
+          ) : (
+            <tr>
+              <td colSpan={7} style={{ textAlign: "center" }}>
+                No results to show.
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

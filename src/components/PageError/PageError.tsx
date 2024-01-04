@@ -1,13 +1,16 @@
 import styles from "./PageError.module.scss";
 
-function PageError() {
+interface PageErrorProps {
+  message?: string;
+}
+
+function PageError({
+  message = "There was an error loading the page. Please refresh the page and try again.",
+}: PageErrorProps) {
   return (
     <div className={styles.pageError}>
       <div>
-        <p>
-          There was an error loading the page. Please refresh the page and try
-          again.
-        </p>
+        <p>{message}</p>
       </div>
     </div>
   );

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Dispatch, SetStateAction } from "react";
 
 import Button from "../Button";
 import logo from "@/assets/images/logo.svg";
+import burger from "@/assets/images/burger.svg";
 import search from "@/assets/images/search.svg";
 import profile from "@/assets/images/profile.png";
 import dropdown from "@/assets/images/dropdown.svg";
@@ -10,7 +12,12 @@ import notification from "@/assets/images/notification.svg";
 
 import styles from "./Navbar.module.scss";
 
-export default function NavBar() {
+interface NavBarProps {
+  showSidebar: boolean;
+  setShowSidebar: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function NavBar({ showSidebar, setShowSidebar }: NavBarProps) {
   return (
     <nav className={styles.navContainer}>
       <div className={styles.navbar}>
@@ -37,6 +44,15 @@ export default function NavBar() {
 
             <Image src={dropdown} alt="More" width={20} />
           </div>
+        </div>
+
+        <div className={styles.burger}>
+          <Image
+            width={24}
+            src={burger}
+            alt="Show Sidebar"
+            onClick={() => setShowSidebar(!showSidebar)}
+          />
         </div>
       </div>
     </nav>

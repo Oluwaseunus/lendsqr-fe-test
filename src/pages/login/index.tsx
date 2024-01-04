@@ -48,7 +48,7 @@ export default function Login() {
           <form className={styles.loginForm} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <input
-                type="text"
+                type="email"
                 name="email"
                 value={email}
                 placeholder="Email"

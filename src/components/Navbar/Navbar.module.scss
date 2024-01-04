@@ -104,3 +104,12 @@
     margin-right: 4px;
   }
 }
+
+.burger {
+  display: none;
+  cursor: pointer;
+
+  @include mixins.breakpointDesktop {
+    display: block;
+  }
+}

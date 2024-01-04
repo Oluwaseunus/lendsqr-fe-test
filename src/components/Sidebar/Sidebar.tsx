@@ -1,3 +1,6 @@
+import clsx from "clsx";
+import { Dispatch, SetStateAction } from "react";
+
 import SidebarLink from "../SidebarLink";
 
 import home from "@/assets/images/home.svg";
@@ -25,9 +28,19 @@ import clipboardList from "@/assets/images/clipboardList.svg";
 
 import styles from "./Sidebar.module.scss";
 
-export default function Sidebar() {
+interface SidebarProps {
+  showSidebar: boolean;
+  setShowSidebar: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function Sidebar({ showSidebar }: SidebarProps) {
   return (
-    <aside className={styles.aside}>
+    <aside
+      className={clsx({
+        [styles.aside]: true,
+        [styles.hideSidebar]: !showSidebar,
+      })}
+    >
       <div>
         <div className={styles.sidebarLinkContainer}>
           <SidebarLink icon={briefcase} text="Switch Organization" />
