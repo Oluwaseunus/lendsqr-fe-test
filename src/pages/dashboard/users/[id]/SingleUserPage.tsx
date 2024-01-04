@@ -35,8 +35,6 @@ function SingleUserPage() {
 
   const { data: user } = data;
 
-  console.log({ user, data });
-
   if (!user) return null;
 
   return (
