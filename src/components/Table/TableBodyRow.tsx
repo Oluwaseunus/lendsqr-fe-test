@@ -1,15 +1,14 @@
 import dayjs from "dayjs";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import ClickAwayListener from "react-click-away-listener";
+import { useState } from "react";
 
-import StatusBadge, { StatusBadgeProps } from "../StatusBadge";
+import TableMore from "./TableMore";
+import StatusBadge from "../StatusBadge";
 
 import type { UserInfo } from "@/utils/constants";
 
 import styles from "./Table.module.scss";
 import more from "@/assets/images/more.svg";
-import TableMore from "./TableMore";
 
 interface TableBodyRowProps {
   data: UserInfo;
@@ -18,7 +17,7 @@ interface TableBodyRowProps {
 function TableBodyRow({ data }: TableBodyRowProps) {
   const [showMore, setShowMore] = useState(false);
 
-  const { id, email, status, username, dateJoined, phoneNumber, organization } =
+  const { email, status, username, dateJoined, phoneNumber, organization } =
     data;
 
   return (

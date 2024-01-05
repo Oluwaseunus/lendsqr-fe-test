@@ -33,7 +33,7 @@ export const initialFormState = {
   organization: "",
 };
 
-export default function FilterProvider({ children }: PropsWithChildren<any>) {
+export default function FilterProvider({ children }: PropsWithChildren<{}>) {
   const [formState, setFormState] = useState(initialFormState);
 
   return (
